@@ -17,6 +17,7 @@ def listar():
     if len(contatos) > 0:
         for contato in contatos:
             print(contato['nome'], '....', contato['telefone'])
+        print('\n')
         return True
     return False
 
@@ -25,11 +26,13 @@ def listar():
 def buscar(nome=None, telefone=None):
     if nome == telefone == None:
         return False
+    
     if nome != None:
         for contato in contatos:
             if contato['nome'] == nome:
                 return contato
         return None
+    
     if telefone != None:
         for contato in contatos:
             if contato['telefone'] == telefone:
@@ -40,4 +43,30 @@ def buscar(nome=None, telefone=None):
 
 # Deletar contatos
 
+def deletar(nome=None, telefone=None):
+    if nome == telefone == None:
+        return False
+    
+    if nome != None:
+        for contato in contatos:
+            if contato['nome'] == nome:
+                contatos.remove(contato)
+                return True
+        return None
+
+    if telefone != None:
+        for contato in contatos:
+            if contato['telefone'] == telefone:
+                contatos.remove(contato)
+                return True
+        return None
+
+
+adicionar()
+adicionar()
+adicionar()
+
+listar()
+deletar('1')
+listar()
 
