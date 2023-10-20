@@ -22,7 +22,21 @@ def listar():
 
 # Buscar contatos
 
-
+def buscar(nome=None, telefone=None):
+    if nome == telefone == None:
+        return False
+    if nome != None:
+        for contato in contatos:
+            if contato['nome'] == nome:
+                return contato
+        return None
+    if telefone != None:
+        for contato in contatos:
+            if contato['telefone'] == telefone:
+                return contato
+        return None
+    
+    
 
 # Deletar contatos
 
